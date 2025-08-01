@@ -118,12 +118,28 @@ L'applicazione è completamente responsive e si adatta a:
 
 ## 🔧 Script Disponibili
 
+Nel directory del progetto, puoi eseguire:
+
 - `npm run dev` - Avvia il server di sviluppo
 - `npm run build` - Crea la build di produzione
 - `npm run preview` - Anteprima della build di produzione
 - `npm run lint` - Controlla il codice con ESLint
+- `npm run deploy` - Deploy su GitHub Pages (dopo la configurazione)
 
----
+## 🌐 Deployment su GitHub Pages
+
+Il progetto è configurato per il deployment automatico su GitHub Pages tramite GitHub Actions.
+
+### Setup rapido:
+1. Segui le istruzioni dettagliate in [`GITHUB_PAGES_SETUP.md`](./GITHUB_PAGES_SETUP.md)
+2. Sostituisci `USERNAME` e `REPOSITORY_NAME` nei file di configurazione
+3. Crea il repository su GitHub e configura Pages
+4. Il sito sarà disponibile su: `https://USERNAME.github.io/REPOSITORY_NAME`
+
+### Deployment automatico:
+- ✅ Build automatico ad ogni push su `main`
+- ✅ Deploy automatico tramite GitHub Actions
+- ✅ Ottimizzato per produzione con Vite---
 
 **Sviluppato con ❤️ da Valerio Di Felice usando React e OpenWeatherMap API**
 
