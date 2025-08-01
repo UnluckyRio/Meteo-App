@@ -1,42 +1,655 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Stili personalizzati per MeteoApp */
+
+/* Reset e stili di base */
+* {
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-@keyframes logo-spin {
+/* Stili per le card */
+.card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border-radius: 15px;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Stili per i pulsanti */
+.btn {
+  border-radius: 10px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Stili per gli input */
+.form-control {
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(116, 185, 255, 0.25);
+  border-color: #74b9ff;
+}
+
+/* Stili per la navbar */
+.navbar {
+  backdrop-filter: blur(10px);
+  background: rgba(116, 185, 255, 0.95) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Impedisce il wrapping degli elementi della navbar */
+.navbar-nav {
+  flex-wrap: nowrap;
+}
+
+.navbar-nav .nav-link,
+.navbar-nav .theme-toggle-btn {
+  flex-shrink: 0;
+}
+
+.navbar .container {
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.nav-link {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Stili per il footer */
+footer {
+  background: linear-gradient(135deg, #2d3436 0%, #636e72 100%) !important;
+}
+
+/* Animazioni */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Stili responsive */
+
+/* Mobile devices (fino a 767px) */
+@media (max-width: 767px) {
+  .display-4 {
+    font-size: 2rem;
+  }
+
+  .display-2 {
+    font-size: 3rem;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Stili per la navbar mobile */
+  .navbar-collapse {
+    flex-direction: row !important;
+    justify-content: flex-end;
+  }
+
+  .navbar-nav {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.5rem 0.75rem;
+    margin-right: 0;
+  }
+
+  .theme-toggle-btn {
+    margin-left: 0.5rem !important;
+    width: 35px;
+    height: 35px;
   }
 }
 
-.card {
-  padding: 2em;
+/* Tablet devices (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    max-width: 90%;
+  }
+
+  .display-4 {
+    font-size: 2.5rem;
+  }
+
+  .display-2 {
+    font-size: 4rem;
+  }
+
+  .card-body {
+    padding: 2rem;
+  }
+
+  /* Ottimizzazione per le card dei dettagli meteo */
+  .weather-details-card {
+    margin-bottom: 1rem;
+  }
+
+  /* Miglior spaziatura per le previsioni */
+  .forecast-card {
+    margin-bottom: 0.75rem;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+/* Desktop devices (1025px e oltre) */
+@media (min-width: 1025px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .display-4 {
+    font-size: 3rem;
+  }
+
+  .display-2 {
+    font-size: 5rem;
+  }
+
+  .card-body {
+    padding: 2.5rem;
+  }
+
+  /* Layout migliorato per desktop */
+  .home-card {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Organizzazione migliorata per la pagina dei dettagli meteo */
+  .weather-main-card {
+    margin-bottom: 4rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Griglia dei dettagli meteo */
+  .weather-details-grid {
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  /* Forza i 4 elementi sulla stessa riga su desktop con larghezza massima */
+  .weather-details-grid > .col-md-3 {
+    flex: 1;
+    max-width: 100%;
+    margin-bottom: 0 !important;
+  }
+
+  .weather-details-card {
+    min-height: 180px;
+    min-width: 150px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .weather-details-card .card-body {
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Sezione previsioni più ordinata */
+  .forecast-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .forecast-container h3 {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 600;
+    color: #2d3436;
+  }
+
+  .forecast-card {
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+  }
+
+  .forecast-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .forecast-card .card-body {
+    padding: 1.5rem 2rem;
+  }
+
+  /* Pulsante indietro più visibile */
+  .btn-outline-primary {
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-width: 2px;
+  }
+}
+
+/* Large desktop (1440px e oltre) */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  .home-card {
+    max-width: 700px;
+  }
+
+  .forecast-container {
+    max-width: 1200px;
+  }
+}
+
+/* Stili specifici per desktop e tablet */
+@media (min-width: 768px) {
+  /* Centratura generale del contenuto */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  /* Contenuto principale centrato e ordinato */
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 2rem 0;
+    max-width: 100%;
+  }
+
+  /* Container per la pagina dei dettagli meteo */
+  main .container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Sezioni principali della pagina dettagli */
+  main .container > .row {
+    margin-bottom: 0;
+  }
+
+  main .container > .row:first-child {
+    margin-bottom: 2rem;
+  }
+
+  main .container > .row:nth-child(2) {
+    margin-bottom: 3rem;
+  }
+
+  main .container > .row:nth-child(3) {
+    margin-bottom: 3rem;
+  }
+
+  .card {
+    margin: 0 auto;
+  }
+
+  .btn {
+    min-width: 120px;
+  }
+
+  .form-control {
+    font-size: 1rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+
+  /* Navbar full width su desktop */
+  .navbar {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  .navbar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  /* Footer full width su desktop */
+  footer {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: auto;
+  }
+
+  footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  /* Stili specifici per le nuove classi */
+  .home-card {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .weather-main-card {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .weather-details-grid .weather-details-card {
+    height: 100%;
+    transition: transform 0.2s ease;
+  }
+
+  .weather-details-grid .weather-details-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .forecast-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .forecast-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .forecast-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+  }
+}
+
+/* Stili per il gradiente del meteo attuale */
+.bg-gradient {
+  background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%) !important;
+}
+
+/* Stili per le icone meteo */
+.weather-icon {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Stili per gli alert */
+.alert {
+  border-radius: 15px;
+  border: none;
+}
+
+/* Stili per lo spinner */
+.spinner-border {
+  animation-duration: 0.75s;
+}
+
+/* Stili per migliorare l'accessibilità */
+.btn:focus,
+.form-control:focus {
+  outline: 2px solid #74b9ff;
+  outline-offset: 2px;
+}
+
+/* Stili per le transizioni fluide */
+.container,
+.row,
+.col {
+  transition: all 0.3s ease;
+}
+
+/* ===== TEMA SCURO ===== */
+
+/* Variabili CSS per i temi */
+:root {
+  /* Tema chiaro (default) */
+  --bg-primary: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --bg-card: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-color: #dee2e6;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --navbar-bg: rgba(116, 185, 255, 0.95);
+}
+
+/* Tema scuro */
+body.dark-theme {
+  --bg-primary: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  --bg-card: #2d3748;
+  --text-primary: #e2e8f0;
+  --text-secondary: #a0aec0;
+  --border-color: #4a5568;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --navbar-bg: rgba(45, 55, 72, 0.95);
+}
+
+/* Stili per le card nel tema scuro */
+body.dark-theme .card {
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+body.dark-theme .card-body {
+  color: var(--text-primary);
+}
+
+body.dark-theme .card-title {
+  color: var(--text-primary);
+}
+
+body.dark-theme .card-text {
+  color: var(--text-secondary);
+}
+
+/* Stili per la navbar nel tema scuro */
+body.dark-theme .navbar {
+  background: var(--navbar-bg) !important;
+}
+
+body.dark-theme .navbar-brand {
+  color: var(--text-primary) !important;
+}
+
+body.dark-theme .nav-link {
+  color: var(--text-secondary) !important;
+}
+
+body.dark-theme .nav-link:hover,
+body.dark-theme .nav-link.active {
+  color: var(--text-primary) !important;
+}
+
+/* Stili per il pulsante toggle tema */
+.theme-toggle-btn {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none !important;
+  flex-shrink: 0;
+  white-space: nowrap;
+  background: transparent !important;
+}
+
+.theme-toggle-btn:hover {
+  background: transparent !important;
+  transform: none;
+}
+
+body.dark-theme .theme-toggle-btn {
+  color: var(--text-primary);
+  border: none !important;
+  background: transparent !important;
+}
+
+body.dark-theme .theme-toggle-btn:hover {
+  background: transparent !important;
+}
+
+/* Stili per i form nel tema scuro */
+body.dark-theme .form-control {
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+body.dark-theme .form-control:focus {
+  background-color: var(--bg-card);
+  border-color: #74b9ff;
+  color: var(--text-primary);
+  box-shadow: 0 0 0 0.2rem rgba(116, 185, 255, 0.25);
+}
+
+body.dark-theme .form-control::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Stili per i pulsanti nel tema scuro */
+body.dark-theme .btn-primary {
+  background-color: #4299e1;
+  border-color: #4299e1;
+}
+
+body.dark-theme .btn-primary:hover {
+  background-color: #3182ce;
+  border-color: #3182ce;
+}
+
+body.dark-theme .btn-secondary {
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+body.dark-theme .btn-secondary:hover {
+  background-color: var(--border-color);
+  border-color: var(--text-secondary);
+}
+
+/* Stili per il footer nel tema scuro */
+body.dark-theme footer {
+  background: var(--navbar-bg) !important;
+  border-top-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+/* Stili per le ombre nel tema scuro */
+body.dark-theme .card:hover {
+  box-shadow: 0 8px 25px var(--shadow) !important;
+}
+
+body.dark-theme .shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem var(--shadow) !important;
+}
+
+/* Stili per gli alert nel tema scuro */
+body.dark-theme .alert {
+  background-color: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+body.dark-theme .alert-danger {
+  background-color: rgba(220, 53, 69, 0.1);
+  border-color: rgba(220, 53, 69, 0.3);
+  color: #f8d7da;
+}
+
+/* Stili per lo spinner nel tema scuro */
+body.dark-theme .spinner-border {
+  color: #4299e1;
+}
+
+/* Stili per il testo muted nel tema scuro */
+body.dark-theme .text-muted {
+  color: #ffffff !important;
+}
+
+/* Stili per gli h3 nel tema scuro */
+body.dark-theme h3 {
+  color: #ffffff !important;
 }

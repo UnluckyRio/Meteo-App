@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Sfondo circolare blu cielo -->
+  <circle cx="50" cy="50" r="50" fill="#4A90E2"/>
+  
+  <!-- Sole -->
+  <circle cx="35" cy="35" r="12" fill="#FFD700"/>
+  
+  <!-- Raggi del sole -->
+  <g stroke="#FFD700" stroke-width="2" stroke-linecap="round">
+    <line x1="35" y1="15" x2="35" y2="20"/>
+    <line x1="35" y1="50" x2="35" y2="55"/>
+    <line x1="15" y1="35" x2="20" y2="35"/>
+    <line x1="50" y1="35" x2="55" y2="35"/>
+    <line x1="23.5" y1="23.5" x2="26.5" y2="26.5"/>
+    <line x1="43.5" y1="43.5" x2="46.5" y2="46.5"/>
+    <line x1="46.5" y1="23.5" x2="43.5" y2="26.5"/>
+    <line x1="26.5" y1="43.5" x2="23.5" y2="46.5"/>
+  </g>
+  
+  <!-- Nuvola principale -->
+  <g fill="#FFFFFF">
+    <circle cx="55" cy="55" r="15"/>
+    <circle cx="70" cy="55" r="12"/>
+    <circle cx="40" cy="55" r="10"/>
+    <circle cx="50" cy="45" r="8"/>
+    <circle cx="65" cy="45" r="7"/>
+  </g>
+  
+  <!-- Gocce di pioggia -->
+  <g fill="#4A90E2">
+    <ellipse cx="45" cy="75" rx="2" ry="4"/>
+    <ellipse cx="55" cy="80" rx="2" ry="4"/>
+    <ellipse cx="65" cy="75" rx="2" ry="4"/>
+  </g>
+</svg>
